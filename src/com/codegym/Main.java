@@ -17,6 +17,7 @@ public class Main {
         System.out.println("6. Kiểm tra danh sách sinh viên có rỗng hay không");
         System.out.println("7. Lấy ra số lượng sinh viên trong danh sách");
         System.out.println("8. Tìm kiếm sinh viên dựa trên mã sinh viên");
+        System.out.println("9. Xóa sinh viên dựa trên MSSV");
 
 
 
@@ -25,10 +26,10 @@ public class Main {
         while (true) {
             System.out.println("Nhập lựa chọn của bạn: ");
             choice = scanner.nextInt();
-            if (choice > 9) {
+            if (choice > 10) {
                 System.out.println("Menu chỉ có từ 1 => 3");
             }
-            if (choice == 9) {
+            if (choice == 10) {
                 break;
             }
             switch (choice) {
@@ -48,6 +49,7 @@ public class Main {
                         System.out.println("Nhập thông tin sinh viên " + (i + 1));
                         Student newStudent = inputStudentInfo();
                         studentManagement.addStudent(newStudent);
+                        System.out.println("Đã thêm sinh viên!");
                     }
                     break;
                 }
@@ -105,6 +107,21 @@ public class Main {
                     }else{
                         System.out.println(studentManagement.getStudents().get(index));
                     }
+                    break;
+                }
+                case 9 : {
+                    System.out.println("----Xóa sinh viên dựa trên MSSV----");
+                    System.out.println("Nhập MSSV cần xóa: ");
+                    scanner.nextLine();
+                    String studentCode = scanner.nextLine();
+                    int index = studentManagement.findStudentMSSV(studentCode);
+                    if (index == -1){
+                        System.out.println("Không tìm tháy sinh viên có MSSV là: "+ studentCode);
+                    }else{
+                        studentManagement.removeStudent(index);
+                        System.out.println("Đã xóa sinh viên!");
+                    }
+                    break;
                 }
             }
         }
