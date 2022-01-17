@@ -38,5 +38,13 @@ public class StudentManagement {
     public void updateStudent(int index, Student newStudent){
         this.students.set(index,newStudent);
     }
+    //Xóa toàn bộ sinh viên
+    public void removeAllStudent(){
+        this.students.removeAll(students);
+    }
+    //Kiểm tra danh sách sinh viên có rỗng hay không
+    public boolean isEmpty(){
+        return this.students.isEmpty();
+    }
 
 }
