@@ -15,23 +15,28 @@ public class Main {
         System.out.println("4. Sửa thông tin  sinh viên");
         System.out.println("5. Xóa toàn bộ danh sách sinh viên");
         System.out.println("6. Kiểm tra danh sách sinh viên có rỗng hay không");
+        System.out.println("7. Lấy ra số lượng sinh viên trong danh sách");
 
 
-        System.out.println("7. Thoát");
+
+        System.out.println("8. Thoát");
 
         while (true) {
             System.out.println("Nhập lựa chọn của bạn: ");
             choice = scanner.nextInt();
-            if (choice > 7) {
+            if (choice > 8) {
                 System.out.println("Menu chỉ có từ 1 => 3");
             }
-            if (choice == 7) {
+            if (choice == 8) {
                 break;
             }
             switch (choice) {
                 case 1: {
                     System.out.println("----Hiển thị toàn bộ sinh viên----");
                     studentManagement.displayAllStudent();
+                    if (studentManagement.getStudents().size() == 0){
+                        System.out.println("Không có sinh viên nào để hiển thị!");
+                    }
                     break;
                 }
                 case 2: {
@@ -71,6 +76,7 @@ public class Main {
                 case 5: {
                     System.out.println("----Xóa toàn bộ danh sách sinh viên");
                     studentManagement.removeAllStudent();
+                    System.out.println("Đã xóa toàn bộ danh sách sinh viên!");
                     break;
                 }
                 case 6: {
@@ -80,6 +86,11 @@ public class Main {
                     } else {
                         System.out.println("Danh sách sinh viên không rỗng");
                     }
+                    break;
+                }
+                case 7 : {
+                    System.out.println("----Lấy ra số lượng sinh viên trong danh sách----");
+                    System.out.println("Số lượng sinh viên trong danh sách là: "+ studentManagement.quantilyStudent()+" người.");
                     break;
                 }
             }

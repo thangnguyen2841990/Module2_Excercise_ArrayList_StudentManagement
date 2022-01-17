@@ -46,5 +46,8 @@ public class StudentManagement {
     public boolean isEmpty(){
         return this.students.isEmpty();
     }
-
+    //lấy số lượng sinh viên trong danh sách
+    public int quantilyStudent(){
+        return this.students.size();
+    }
 }
