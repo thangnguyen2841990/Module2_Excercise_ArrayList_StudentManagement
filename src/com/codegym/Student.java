@@ -50,4 +50,6 @@ public class Student {
         return "MSSV: " + this.studentCode + ", Họ và tên: "+this.name + ", Năm sinh: "
                 + this.YearOfBirth+ ", Điểm TB: "+this.mediumScore;
     }
+
+
 }

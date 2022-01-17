@@ -18,18 +18,17 @@ public class Main {
         System.out.println("7. Lấy ra số lượng sinh viên trong danh sách");
         System.out.println("8. Tìm kiếm sinh viên dựa trên mã sinh viên");
         System.out.println("9. Xóa sinh viên dựa trên MSSV");
-
-
-
-        System.out.println("8. Thoát");
+        System.out.println("10. Tìm kiếm sinh viên dựa trên tên");
+        System.out.println("11. Xuất ra danh sách sinh viên có điểm từ cao đến thấp");
+        System.out.println("12. Thoát");
 
         while (true) {
             System.out.println("Nhập lựa chọn của bạn: ");
             choice = scanner.nextInt();
-            if (choice > 10) {
+            if (choice > 12) {
                 System.out.println("Menu chỉ có từ 1 => 3");
             }
-            if (choice == 10) {
+            if (choice == 12) {
                 break;
             }
             switch (choice) {
@@ -121,6 +120,24 @@ public class Main {
                         studentManagement.removeStudent(index);
                         System.out.println("Đã xóa sinh viên!");
                     }
+                    break;
+                }
+                case 10 : {
+                    System.out.println("----Tìm kiếm sinh viên dựa trên tên----");
+                    System.out.println("Nhập tên sinh viên cần tìm: ");
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
+                    int index = studentManagement.findNameStudent(name);
+                    if (index == -1){
+                        System.out.println("Không tìm tháy sinh viên có tên là: "+ name);
+                    }else{
+                        System.out.println(studentManagement.getStudents().get(index));
+                    }
+                    break;
+                }
+                case 11 : {
+                    System.out.println("----Sắp xếp danh sách sinh viên theo thứ tự điểm từ cao đến thấp----");
+                    studentManagement.sortStudents();
                     break;
                 }
             }

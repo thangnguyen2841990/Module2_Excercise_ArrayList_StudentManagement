@@ -1,6 +1,8 @@
 package com.codegym;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StudentManagement {
     private ArrayList<Student> students;
@@ -59,5 +61,30 @@ public class StudentManagement {
             }
         }
         return index;
+    }
+    //tìm kiếm sinh viên dựa trên tên
+    public int findNameStudent(String name){
+        int index = -1;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName().equals(name)){
+                index = i;
+            }
+        }
+        return index;
+    }
+    //sắp xếp sinh viên theo điểm TB từ cao đến thấp
+    public void sortStudents(){
+        Collections.sort(this.students, new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                if (o1.getMediumScore()<o2.getMediumScore()){
+                    return 1;
+                }else if (o1.getMediumScore() > o2.getMediumScore()){
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
 }
