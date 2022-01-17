@@ -16,6 +16,7 @@ public class Main {
         System.out.println("5. Xóa toàn bộ danh sách sinh viên");
         System.out.println("6. Kiểm tra danh sách sinh viên có rỗng hay không");
         System.out.println("7. Lấy ra số lượng sinh viên trong danh sách");
+        System.out.println("8. Tìm kiếm sinh viên dựa trên mã sinh viên");
 
 
 
@@ -24,10 +25,10 @@ public class Main {
         while (true) {
             System.out.println("Nhập lựa chọn của bạn: ");
             choice = scanner.nextInt();
-            if (choice > 8) {
+            if (choice > 9) {
                 System.out.println("Menu chỉ có từ 1 => 3");
             }
-            if (choice == 8) {
+            if (choice == 9) {
                 break;
             }
             switch (choice) {
@@ -92,6 +93,18 @@ public class Main {
                     System.out.println("----Lấy ra số lượng sinh viên trong danh sách----");
                     System.out.println("Số lượng sinh viên trong danh sách là: "+ studentManagement.quantilyStudent()+" người.");
                     break;
+                }
+                case 8 : {
+                    System.out.println("----Tìm kiếm sinh viên dựa trên mã sinh viên----");
+                    System.out.println("Nhập MSSV cần tìm: ");
+                    scanner.nextLine();
+                    String studentCode = scanner.nextLine();
+                    int index = studentManagement.findStudentMSSV(studentCode);
+                    if (index == -1){
+                        System.out.println("Không tìm tháy sinh viên có MSSV là: "+ studentCode);
+                    }else{
+                        System.out.println(studentManagement.getStudents().get(index));
+                    }
                 }
             }
         }

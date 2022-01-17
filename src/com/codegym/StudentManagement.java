@@ -50,4 +50,14 @@ public class StudentManagement {
     public int quantilyStudent(){
         return this.students.size();
     }
+    // tìm kiếm sinh vien dựa trên MSSV
+    public int findStudentMSSV(String studentCode){
+        int index = -1;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getStudentCode().equals(studentCode)){
+                index = i;
+            }
+        }
+        return index;
+    }
 }
